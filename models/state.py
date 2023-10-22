@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """ State Module for the project """
 
+import models
+from models.city import City
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from models.base_model import BaseModel, Base
 from os import getenv
 
 
@@ -17,7 +19,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             cities_list = []
-            for city in self.cities:
+            for city in list(models.storage.all(City).values()):
                 if city.state_id == self.id:
                     cities_list.append(city)
             return cities_list
