@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ 6-number_odd_or_even module"""
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
