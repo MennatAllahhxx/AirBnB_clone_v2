@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 3-python_route module"""
+""" 4-number_route module"""
 from flask import Flask
 
 app = Flask(__name__)
@@ -28,6 +28,12 @@ def c_text(text):
 def python_text(text='is cool'):
     """a fun to display python text"""
     return "Python {}".format(text.replace("_", " "))
+
+
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    """a fun to display python text"""
+    return "{} is a number".format(n)
 
 
 if __name__ == '__main__':
