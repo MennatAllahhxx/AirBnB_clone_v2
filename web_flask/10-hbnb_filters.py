@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""9-states module"""
+"""10-hbnb_filters module"""
 
 from flask import Flask, render_template
 from models import storage
@@ -8,25 +8,13 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.route("/states", strict_slashes=False)
-def states():
-    """a fun to display states"""
+@app.route("/hbnb_filters", strict_slashes=False)
+def hbnb_filters():
+    """a fun to display hbnb filters"""
     states = storage.all(State)
-    return render_template('9-states.html', states=states)
-
-
-@app.route("/states/<id>", strict_slashes=False)
-def state_id(id):
-    """a fun to display state by id"""
-    obj = None
-    notfound = True
-    for state in storage.all(State).values():
-        if state.id == id:
-            obj = state
-            notfound = False
-            break
-    return render_template('9-states.html', id=id, state=obj,
-                           notfound=notfound)
+    amenities = storage.all(Amenity)
+    return render_template('10-hbnb_filters', states=states,
+                           amenities=amenities)
 
 
 @app.teardown_appcontext
