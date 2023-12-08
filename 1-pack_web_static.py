@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-a Fabric script that generates a .tgz archive 
+a Fabric script that generates a .tgz archive
 """
 
 from fabric.api import local
