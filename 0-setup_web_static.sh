@@ -3,7 +3,7 @@
 sudo apt-get update -y
 sudo apt-install nginx -y
 
-sudo mkdir -p /data/web_static/shared/ /data/web_static/releases/test/index.html
+sudo mkdir -p /data/web_static/shared/ /data/web_static/releases/test/
 sudo sh -c 'echo "hi ;)" > /data/web_static/releases/test/index.html'
 
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
